@@ -10,7 +10,9 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TestServiceImpl implements TestService{
@@ -47,6 +49,11 @@ public class TestServiceImpl implements TestService{
         }
 
         throw new EntityNotFoundException("Test Not Found");
+    }
+    public List<Test> getAllTests() {
+        return testRepository.findAll().stream().peek(
+                test -> test.setTime(test.getQuestions().size() * test.getTime())
+        ).collect(Collectors.toList());
     }
 
 

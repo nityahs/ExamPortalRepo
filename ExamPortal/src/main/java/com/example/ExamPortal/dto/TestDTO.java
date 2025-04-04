@@ -36,7 +36,7 @@ public class TestDTO {
     }
 
     public Long getTime() {
-        return time;
+        return time != null ? time : 0L;
     }
 
     public void setTime(Long time) {

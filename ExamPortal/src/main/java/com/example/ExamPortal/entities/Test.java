@@ -3,6 +3,7 @@ package com.example.ExamPortal.entities;
 import com.example.ExamPortal.dto.TestDTO;
 import jakarta.persistence.*;
 
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -47,11 +48,19 @@ public class Test {
     }
 
     public Long getTime() {
-        return time;
+        return time != null ? time : 0L;
     }
 
     public void setTime(Long time) {
         this.time = time;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
     }
 
     public TestDTO getDto() {
