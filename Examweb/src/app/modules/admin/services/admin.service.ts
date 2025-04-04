@@ -7,11 +7,15 @@ const BASIC_URL = "http://localhost:8081/";
 @Injectable({
   providedIn: 'root'
 })
-export class AdminService {
+export class AdminService {  
+  constructor(private http: HttpClient) { }  
 
-  constructor(private http: HttpClient) { }
+  createTest(testDto): Observable<any> {  
+      return this.http.post(BASIC_URL + `api/test`, testDto);  
+  }  
 
-  createTest(testDto): Observable<any>{
-    return this.http.post(BASIC_URL + 'api/test', testDto);
-  }
-}
+  getAllTest(): Observable<any> {  
+      return this.http.get(BASIC_URL + `api/test`);  
+  }  
+}  
+
