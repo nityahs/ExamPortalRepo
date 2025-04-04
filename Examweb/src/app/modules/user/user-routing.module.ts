@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TaketestComponent } from './components/taketest/taketest.component';
 
 const routes: Routes = [
 
-  {path:'dashboard', component: DashboardComponent}
+  {path:'dashboard', component: DashboardComponent},
+  {path:'take-test/:id',component: TaketestComponent}
   
 ];
 
