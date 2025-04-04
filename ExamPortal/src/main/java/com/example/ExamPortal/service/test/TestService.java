@@ -1,8 +1,6 @@
 package com.example.ExamPortal.service.test;
 
-import com.example.ExamPortal.dto.QuestionDTO;
-import com.example.ExamPortal.dto.TestDTO;
-import com.example.ExamPortal.dto.TestDetailsDTO;
+import com.example.ExamPortal.dto.*;
 import com.example.ExamPortal.entities.Test;
 
 import java.util.List;
@@ -15,4 +13,6 @@ public interface TestService {
     public List<TestDTO> getAllTests();
 
     public TestDetailsDTO getAllQuestionsByTest(Long id);
+
+    public TestResultDTO submitTest(SubmitTestDTO request);
 }

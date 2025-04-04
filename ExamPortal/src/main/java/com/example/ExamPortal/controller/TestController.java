@@ -2,6 +2,7 @@ package com.example.ExamPortal.controller;
 
 
 import com.example.ExamPortal.dto.QuestionDTO;
+import com.example.ExamPortal.dto.SubmitTestDTO;
 import com.example.ExamPortal.dto.TestDTO;
 import com.example.ExamPortal.service.test.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +55,14 @@ public class TestController {
         }
     }
 
-
+    @PostMapping("/submit-test")
+    public ResponseEntity<?> submitTest(@RequestBody SubmitTestDTO dto) {
+        try {
+            return new ResponseEntity<>(testService.submitTest(dto), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
 
 
 
