@@ -11,5 +11,5 @@ public interface TestService {
 
     public TestDTO createTest(TestDTO dto);
     public QuestionDTO addQuestionInTest(QuestionDTO dto);
-    public List<Test> getAllTests();
+    public List<TestDTO> getAllTests();
 }

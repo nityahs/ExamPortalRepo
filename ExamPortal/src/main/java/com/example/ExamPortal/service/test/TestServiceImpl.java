@@ -50,11 +50,16 @@ public class TestServiceImpl implements TestService{
 
         throw new EntityNotFoundException("Test Not Found");
     }
-    public List<Test> getAllTests() {
-        return testRepository.findAll().stream().peek(
-                test -> test.setTime(test.getQuestions().size() * test.getTime())
-        ).collect(Collectors.toList());
+    public List<TestDTO> getAllTests() {
+        return testRepository.findAll().stream().peek(test -> {
+                    int questionCount = (test.getQuestions() != null) ? test.getQuestions().size() : 0;
+                    long time = (test.getTime() != null) ? test.getTime() : 0L;
+
+                    test.setTime(questionCount * time);  // Avoid null multiplication
+                }).map(Test::getDto)  // Convert to DTO
+                .collect(Collectors.toList());
     }
+
 
 
 }
