@@ -2,6 +2,7 @@ package com.example.ExamPortal.service.test;
 
 import com.example.ExamPortal.dto.QuestionDTO;
 import com.example.ExamPortal.dto.TestDTO;
+import com.example.ExamPortal.dto.TestDetailsDTO;
 import com.example.ExamPortal.entities.Question;
 import com.example.ExamPortal.entities.Test;
 import com.example.ExamPortal.repository.QuestionRepository;
@@ -50,14 +51,41 @@ public class TestServiceImpl implements TestService{
 
         throw new EntityNotFoundException("Test Not Found");
     }
-    public List<TestDTO> getAllTests() {
-        return testRepository.findAll().stream().peek(test -> {
-                    int questionCount = (test.getQuestions() != null) ? test.getQuestions().size() : 0;
-                    long time = (test.getTime() != null) ? test.getTime() : 0L;
+//    public List<TestDTO> getAllTests() {
+//        return testRepository.findAll().stream().peek(test -> {
+//                    int questionCount = (test.getQuestions() != null) ? test.getQuestions().size() : 0;
+//                    long time = (test.getTime() != null) ? test.getTime() : 0L;
+//
+//                    test.setTime(questionCount * time);  // Avoid null multiplication
+//                }).map(Test::getDto)  // Convert to DTO
+//                .collect(Collectors.toList());
+//    }
 
-                    test.setTime(questionCount * time);  // Avoid null multiplication
-                }).map(Test::getDto)  // Convert to DTO
+    public List<TestDTO> getAllTests() {
+        return testRepository.findAll().stream()
+                .peek(test -> test.setTime(test.getQuestions().size() * test.getTime())) // Assuming multiplication
+                .map(Test::getDto)
                 .collect(Collectors.toList());
+    }
+
+
+
+
+    public TestDetailsDTO getAllQuestionsByTest(Long id) {
+        Optional<Test> optionalTest = testRepository.findById(id);
+        TestDetailsDTO testDetailsDTO = new TestDetailsDTO();
+
+        if (optionalTest.isPresent()) {
+            TestDTO testDTO = optionalTest.get().getDto();
+            testDTO.setTime(optionalTest.get().getTime() * optionalTest.get().getQuestions().size());
+            testDetailsDTO.setTestDTO(testDTO);
+            testDetailsDTO.setQuestions(optionalTest.get().getQuestions().stream()
+                    .map(Question::getDto)
+                    .toList());
+            return testDetailsDTO;
+        }
+
+        return testDetailsDTO;
     }
 
 

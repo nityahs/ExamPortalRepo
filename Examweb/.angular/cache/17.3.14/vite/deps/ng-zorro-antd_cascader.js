@@ -15,7 +15,7 @@ import {
   NzFormNoStatusService,
   NzFormPatchModule,
   NzFormStatusService
-} from "./chunk-N2UKYJVQ.js";
+} from "./chunk-GBSO5XFS.js";
 import {
   DEFAULT_CASCADER_POSITIONS,
   NzConnectedOverlayDirective,
@@ -40,22 +40,12 @@ import "./chunk-LDYPNK6O.js";
 import {
   NzNoAnimationDirective
 } from "./chunk-BJW7QPAN.js";
-import {
-  slideMotion
-} from "./chunk-F3JPORSX.js";
-import {
-  NzIconDirective,
-  NzIconModule
-} from "./chunk-PYNRPV2Y.js";
-import "./chunk-5BZR2V47.js";
 import "./chunk-6PKCV7ZQ.js";
 import "./chunk-K6OXKTPC.js";
-import "./chunk-FVHK2MSU.js";
 import {
-  NzOutletModule,
-  NzStringTemplateOutletDirective
-} from "./chunk-MXSTGZWO.js";
-import "./chunk-2TCXTTBJ.js";
+  NzDestroyService
+} from "./chunk-AT5YIVOW.js";
+import "./chunk-KDR77T7S.js";
 import {
   DefaultValueAccessor,
   FormsModule,
@@ -64,9 +54,18 @@ import {
   NgModel
 } from "./chunk-EVTE3NKV.js";
 import {
-  NzDestroyService
-} from "./chunk-AT5YIVOW.js";
-import "./chunk-KDR77T7S.js";
+  slideMotion
+} from "./chunk-F3JPORSX.js";
+import {
+  NzIconDirective,
+  NzIconModule
+} from "./chunk-YWASLI3P.js";
+import "./chunk-5BZR2V47.js";
+import "./chunk-FVHK2MSU.js";
+import {
+  NzOutletModule,
+  NzStringTemplateOutletDirective
+} from "./chunk-MXSTGZWO.js";
 import "./chunk-I44STHJS.js";
 import {
   Dir,
@@ -83,6 +82,7 @@ import {
   isNotNil,
   toArray
 } from "./chunk-K7CGAEXM.js";
+import "./chunk-2TCXTTBJ.js";
 import "./chunk-C47TUKU2.js";
 import {
   NgClass,

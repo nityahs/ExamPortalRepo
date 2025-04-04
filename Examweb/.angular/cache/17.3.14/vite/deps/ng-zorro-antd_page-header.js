@@ -1,16 +1,15 @@
 import {
+  NzResizeObserver
+} from "./chunk-IYZFA2L5.js";
+import {
   NzIconDirective,
   NzIconModule
-} from "./chunk-PYNRPV2Y.js";
+} from "./chunk-YWASLI3P.js";
 import "./chunk-5BZR2V47.js";
 import {
   NzOutletModule,
   NzStringTemplateOutletDirective
 } from "./chunk-MXSTGZWO.js";
-import "./chunk-2TCXTTBJ.js";
-import {
-  NzResizeObserver
-} from "./chunk-IYZFA2L5.js";
 import "./chunk-I44STHJS.js";
 import {
   Directionality
@@ -22,6 +21,7 @@ import {
 import {
   PREFIX
 } from "./chunk-K7CGAEXM.js";
+import "./chunk-2TCXTTBJ.js";
 import "./chunk-C47TUKU2.js";
 import {
   Location
