@@ -15,4 +15,6 @@ public interface TestService {
     public TestDetailsDTO getAllQuestionsByTest(Long id);
 
     public TestResultDTO submitTest(SubmitTestDTO request);
+
+    public List<TestResultDTO> getAllTestResults();
 }
