@@ -14,6 +14,7 @@ import { TestService } from '../../services/test.service';
 export class TaketestComponent {
   questions: any[] = [];
     testId: any;
+    selectedAnswers: {[key:number]:string}={};
 
     constructor(private testService: TestService, 
       private activatedRoute: ActivatedRoute) {}
@@ -28,5 +29,9 @@ export class TaketestComponent {
             });
         });
     }
-
+    onAnswerChange(questionId: number, selectedOption: string) {
+      this.selectedAnswers[questionId] = selectedOption;
+      console.log(this.selectedAnswers);
+  }
+  
 }
