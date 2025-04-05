@@ -42,7 +42,7 @@ static isUserLoggedIn(): boolean {
 }
 
 static signOut(): void {
-  window.localStorage.removeItem('USER');
+  window.localStorage.removeItem(USER);
 }
 
 }
