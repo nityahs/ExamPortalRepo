@@ -17,6 +17,7 @@ export class TaketestComponent {
   questions: any[] = [];
   testId: any;
   selectedAnswers: { [key: number]: string } = {};
+  timeRemaining: number = 0;
 
   constructor(
     private testService: TestService, 
@@ -33,6 +34,8 @@ export class TaketestComponent {
       this.testService.getTestQuestions(this.testId).subscribe(res => {
         this.questions = res.questions;
         console.log(this.questions);
+
+        this.timeRemaining = res.testDTO.time || 0;
       });
     });
   }
@@ -41,6 +44,15 @@ export class TaketestComponent {
     this.selectedAnswers[questionId] = selectedOption;
     console.log(this.selectedAnswers);
   }
+
+  getFormattedTime(): string {
+    const minutes = Math.floor(this.timeRemaining / 60);
+    const seconds = this.timeRemaining % 60;
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`; // 5:02
+  }
+  
+  
+
 
   submitAnswers() {
     const answerList = Object.keys(this.selectedAnswers).map(questionId => {
