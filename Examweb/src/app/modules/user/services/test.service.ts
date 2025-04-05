@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 const BASIC_URL = "http://localhost:8081/";
 
@@ -15,4 +18,8 @@ export class TestService {
   getTestQuestions(id:number): Observable<any> {
     return this.http.get(BASIC_URL + `api/test/${id}`);
   }
+  submitTest(data: any): Observable<any> {
+    return this.http.post(BASIC_URL + `api/test/submit-test`, data);
+}
+
 }
